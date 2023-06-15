@@ -36,7 +36,7 @@ $variable1=5;
 
 if($variable1<=$seuil){
 $resultat=$variable1*2;
-echo "Le resultat est : $variable";
+echo "Le resultat est : $variable1";
 }else{
     echo'Le seuile de : '.$seuil.'est dépasseé';
 }
