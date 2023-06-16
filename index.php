@@ -156,3 +156,13 @@ for($i=1;$i<=100;$i+=2){
 }
 
 ?> 
+
+<?php 
+$number=100;
+$i=0;
+while ($i <= $number) { // Condition
+    echo "LUn nombre pair : $i <br/>";
+
+    $i++;  // Modification de l'amorce
+}
+?>
