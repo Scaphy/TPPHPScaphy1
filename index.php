@@ -142,3 +142,17 @@ $prixTTC = $prixHT + $montantTVA;
     </form>
 </body>
 </html>
+
+
+<?php 
+/*
+    Ecrire une boucle for qui affiche tous les nombres impairs
+    de 0 à 100 (inclu)
+    de 0 à 100 (inclus)
+*/
+
+for($i=1;$i<=100;$i+=2){
+    echo  $i;
+}
+
+?> 
