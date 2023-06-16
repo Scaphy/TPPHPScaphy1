@@ -200,7 +200,7 @@ while ($i <= $number) { // Condition
 </head>
 <body>
     <h1> <?php echo "Bonjour {$_COOKIE['prenom']} {$_COOKIE['nom']} {$_COOKIE['age']}<br>"; ?></h1>
-    
+
     <form action="#" method="POST">
         <label for="nom" >Entrer le nom</label>
         <input type="text" id="nom" name="nom" />
@@ -230,3 +230,63 @@ while ($i <= $number) { // Condition
 
     </body>
 </html>
+
+<?php 
+/*
+    Vous allez ajouter le code HTML de base (!)
+    Vous allez ajouter un formulaire de connexion
+        - Login
+        - mot de passe
+    A la soumission du formulaire :
+        - Vous allez vérifier si le login est égal à : mail@contat.com
+        - Vous allez vérifier si le mot de passe est égal à : pwd123
+    Si le login et le mot de passe ne correspondent pas :
+        - Vous allez afficher un message d'erreur
+    Si le login et le mot de passe correspondent :
+        - Vous allez masquer le formulaire de contact
+        - Vous allez inclure un fichier qui contient un titre (h1)
+        - Vous allez afficher un lien "Déconnexion"
+        - Vous allez enregistrer le login en COOKIE ou en SESSION
+    Si l'utilisateur clique sur "Déconnexion" :
+        - Vous allez afficher le formulaire de connexion
+        - Vous allez supprimer la connexion (variable COOKIE ou SESSION)
+*/
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<form action="#" method="POST">
+        <label for="login" >Entrer le login/label>
+        <input type="text" id="login" name="login" />
+        <label for="password" >Entrer le mot de passe</label>
+        <input type="password" name="password" id="password" />
+        <input type ="submit" value="Se connecter" name="conection" />
+</form>
+<?php 
+if(isset($_POST['conection'])){
+    if($_POST['login']=='mail@contact.com' && $_POST['password']=='pwd123' )
+    {
+        include_once('fichierH1.html');
+        ?> 
+        <input type="texte" >Deconnexion</input>
+        <?php 
+        session_start();
+
+        $_SESSION["login"] = $_POST["login"];
+
+    }
+}
+    ?>
+</body>
+</html>
+
+
+
+
+
