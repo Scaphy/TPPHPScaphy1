@@ -163,6 +163,70 @@ $i=0;
 while ($i <= $number) { // Condition
     echo "LUn nombre pair : $i <br/>";
 
-    $i++;  // Modification de l'amorce
+    $i+=2;  // Modification de l'amorce
 }
 ?>
+<?php 
+/*
+    Vous allez ajouter le code HTML de base pour une page web (!)
+    Vous allez ajouter un titre H1 (Veuillez renseigner les informations)
+    Vous allez y ajouter un formulaire qui vous demande :
+        - Votre prénom
+        - Votre nom
+        - Votre age
+    Lorsque l'utilisateur renseigne les informations et valide le formulaire
+    vous allez envoyer les données en méthode POST
+    Une fois que les données ont été envoyées,
+    vous allez vérifier si elles ne sont pas vide
+    si les données sont vide, vous allez afficher un message d'erreur
+    si les données sont remplies, vous allez les stocker sur les cookies
+    Une fois les données stockées sur les cookies
+    Vous allez afficher :
+        "Bonjour PRENOM NOM, tu as AGE ans"
+    Exemple :
+        "Bonjour Jean-Louis ERRANTE, tu as 36 ans"
+    Informations importantes :
+        - Le message d'erreur doit s'afficher sous le champ qui pose problème
+        - Le message "Bonjour..." doit s'afficher à la place du H1 de base
+*/
+
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> <?php echo "Bonjour {$_COOKIE['prenom']} {$_COOKIE['nom']} {$_COOKIE['age']}<br>"; ?></h1>
+    
+    <form action="#" method="POST">
+        <label for="nom" >Entrer le nom</label>
+        <input type="text" id="nom" name="nom" />
+        <label for="prenom" >Entrer le prenom</label>
+        <input type="text" id="prenom" name="prenom" />
+        <label for="age" >Entrer l'age</label>
+        <input type="number" id="age" name="age" />
+        <input type="submit" value="envoyer" />
+    </form>
+<?php 
+    $leNom=$_POST['nom'];
+    $lePrenom=$_POST['prenom'];
+    $lage=$_POST['age'];
+    if(empty($leNom)){
+        echo("Veuillez renseigner le nom");
+    }elseif(empty($lePrenom)){
+        echo("Veuillez renseigner le prenom");
+    }elseif(empty($lage)){
+        echo("Veuillez renseigner l'age");
+    }else{
+        setcookie('prenom', $lePrenom, time()+3600);
+        setcookie('nom', $leNom, time()+3600);
+        setcookie('age', $lage, time()+3600);
+    }
+
+?>
+
+    </body>
+</html>
